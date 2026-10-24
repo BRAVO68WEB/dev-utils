@@ -16,6 +16,10 @@
 # next.js
 /.next/
 /out/
+/tmp/
+
+# local design-session logs
+.impeccable/live/
 
 # production
 /build

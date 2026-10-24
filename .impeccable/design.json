@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T19:00:00Z",
+  "title": "Design System: Dev Utils",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Dracula purple",
+        "canonical": "#bd93f9",
+        "tonalRamp": ["#210046", "#3b0467", "#582c89", "#784ead", "#996fd2", "#bb91f7", "#dfb5ff", "#ffd9ff"]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#282a36",
+        "tonalRamp": ["#0f111a", "#292b36", "#464853", "#646673", "#858794", "#a6a9b7", "#caccdb", "#eef1ff"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Foreground paper",
+        "canonical": "#f8f8f2",
+        "tonalRamp": ["#12120e", "#2c2c28", "#494944", "#686862", "#888883", "#aaaaa5", "#cecec8", "#f2f2ec"]
+      }
+    },
+    "typographyMeta": {
+      "title": { "displayName": "Title", "purpose": "Header and card titles." },
+      "headline": { "displayName": "Headline", "purpose": "Launcher heading." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and controls." },
+      "label": { "displayName": "Label", "purpose": "Shortcuts and field values." },
+      "code": { "displayName": "Code", "purpose": "Editors and preformatted output." },
+      "reading": { "displayName": "Reading", "purpose": "Markdown preview body." },
+      "reading-h1": { "displayName": "Reading heading 1", "purpose": "Markdown preview heading." },
+      "reading-h2": { "displayName": "Reading heading 2", "purpose": "Markdown preview heading." },
+      "reading-h3": { "displayName": "Reading heading 3", "purpose": "Markdown preview heading." }
+    },
+    "shadows": [
+      {
+        "name": "switcher",
+        "value": "0 18px 50px -24px rgba(0,0,0,0.45)",
+        "purpose": "The tool switcher only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "theme",
+        "value": "180ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Background and text color when the theme changes. Off when reduced motion is requested."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one main action on a bar.",
+      "html": "<button class=\"ds-btn-primary\">Jump</button>",
+      "css": ".ds-btn-primary { height: 32px; padding: 0 10px; border: 1px solid transparent; border-radius: 6px; background: #bd93f9; color: #282a36; font: 500 14px/1 Geist, ui-sans-serif, sans-serif; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 2px solid #bd93f9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary actions such as Export.",
+      "html": "<button class=\"ds-btn-ghost\">Export</button>",
+      "css": ".ds-btn-ghost { height: 32px; padding: 0 10px; border: 1px solid #44475a; border-radius: 6px; background: #21222c; color: #f8f8f2; font: 500 14px/1 Geist, ui-sans-serif, sans-serif; } .ds-btn-ghost:hover { background: #343746; } .ds-btn-ghost:focus-visible { outline: 2px solid #bd93f9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Danger button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive actions. The label names the action.",
+      "html": "<button class=\"ds-btn-danger\">Clear</button>",
+      "css": ".ds-btn-danger { height: 32px; padding: 0 10px; border: 1px solid #44475a; border-radius: 6px; background: #21222c; color: #ff5555; font: 500 14px/1 Geist, ui-sans-serif, sans-serif; } .ds-btn-danger:hover { background: #343746; } .ds-btn-danger:focus-visible { outline: 2px solid #bd93f9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Mono field for values you edit.",
+      "html": "<input class=\"ds-input\" value=\"https://example.com\" />",
+      "css": ".ds-input { height: 32px; width: 240px; padding: 0 8px; border: 1px solid #44475a; border-radius: 6px; background: #21222c; color: #f8f8f2; caret-color: #bd93f9; font: 400 14px/1 Geist Mono, ui-monospace, monospace; } .ds-input:focus-visible { outline: 2px solid #bd93f9; outline-offset: 2px; }"
+    },
+    {
+      "name": "Tool card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A tool on the launcher.",
+      "html": "<a class=\"ds-card\"><span class=\"ds-card-title\">Diff</span><span class=\"ds-card-body\">Compare two texts, side by side or unified.</span></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 8px; width: 240px; padding: 16px; border: 1px solid #44475a; border-radius: 12px; background: #21222c; color: #f8f8f2; text-decoration: none; } .ds-card:hover { border-color: #bd93f9; background: #343746; } .ds-card-title { font: 600 14px/1.25 Geist, ui-sans-serif, sans-serif; } .ds-card-body { color: #b3bce0; font: 400 14px/1.5 Geist, ui-sans-serif, sans-serif; }"
+    },
+    {
+      "name": "Rail item",
+      "kind": "nav",
+      "refersTo": "button-ghost",
+      "description": "Current tool in the rail.",
+      "html": "<a class=\"ds-nav\" aria-current=\"page\">Format</a>",
+      "css": ".ds-nav { display: flex; align-items: center; padding: 6px 8px; border-radius: 6px; background: #343746; color: #bd93f9; font: 500 14px/1.25 Geist, ui-sans-serif, sans-serif; text-decoration: none; } .ds-nav:focus-visible { outline: 2px solid #bd93f9; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The night workbench",
+    "overview": "Dev Utils is a bench you keep open beside the request you are already handling. Dracula is the dark bench: night background, lavender accent, and syntax colors that match the editors people already know. Light mode is the same bench on warm paper, with the accent darkened so it still reads.\n\nDensity stays comfortable. Chrome is a rail and a short header. The work surface is the editor, the table, or the preview. Color marks the current tool, the primary action, and status. It does not decorate.",
+    "keyCharacteristics": [
+      "Dracula at night, warm paper in the light.",
+      "One accent, used for the current tool and the primary button.",
+      "Tonal steps instead of shadows, except the tool switcher.",
+      "Geist for the interface, Geist Mono for code, fields, and shortcuts.",
+      "Status colors stay green, red, and yellow, and the words say what happened."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Purple marks the current tool, the primary action, focus, and the caret. Status colors are the only other chromatic roles.", "section": "colors" },
+      { "name": "The Mono Rule", "body": "Monospace is for code, data, and keystrokes. It is not a costume for labels.", "section": "typography" },
+      { "name": "The Flat Surface Rule", "body": "A resting card has a border and no shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Dracula purple for one job at a time: current tool, primary action, focus, or caret.",
+      "Do keep secondary text on the lifted lavenders, not the dim comment purple.",
+      "Do separate surfaces with tone and a 1px line."
+    ],
+    "donts": [
+      "Don't add a drop shadow to a resting card.",
+      "Don't use a border thicker than 1px as a stripe on a card, row, or banner.",
+      "Don't put monospace on ordinary labels.",
+      "Don't invent a second accent hue."
+    ]
+  }
+}
