@@ -1,6 +1,13 @@
 {
   "name": "@bravo68web/dev-utils",
   "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BRAVO68WEB/dev-utils.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "dev-utils": "./bin/dev-utils.mjs"
   },

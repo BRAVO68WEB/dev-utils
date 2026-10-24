@@ -23,6 +23,39 @@ build again.
 Open the printed URL. Webhook and HTTP addresses use that same host and
 port.
 
+## Publish a release
+
+Releases are published by GitHub Actions with [npm trusted
+publishing](https://docs.npmjs.com/trusted-publishers). The workflow does
+not use a long-lived npm token. npm attaches a provenance attestation
+because this repository is public.
+
+Once, on npm, open the package settings for `@bravo68web/dev-utils` and
+add a GitHub Actions trusted publisher:
+
+- Organization or user: `BRAVO68WEB`
+- Repository: `dev-utils`
+- Workflow filename: `publish.yml`
+- Environment name: `npm`
+- Allowed action: `npm publish`
+
+The filename and environment must match exactly. A new publisher must
+publish successfully within two days or it expires. Create a GitHub
+environment named `npm` under the repository settings if you want a
+required reviewer before the job runs.
+
+To release, set `version` in `package.json`, commit it, and push a
+matching tag:
+
+```bash
+git tag v0.1.1
+git push origin v0.1.1
+```
+
+The `v*` tag starts `.github/workflows/publish.yml` on a GitHub-hosted
+runner. It installs with the lockfile, runs the tests, and publishes
+only when the tag equals the package version.
+
 ## Run the app from this repo
 
 Install dependencies with Bun, then start the dev server.
