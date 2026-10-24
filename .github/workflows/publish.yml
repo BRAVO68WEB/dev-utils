@@ -23,7 +23,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          registry-url: https://registry.npmjs.org
 
       - name: Install
         run: bun install --frozen-lockfile
@@ -44,4 +43,8 @@ jobs:
           fi
 
       - name: Publish
-        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ""
+        run: |
+          npm config delete //registry.npmjs.org/:_authToken --location=user || true
+          npm publish --access public
